@@ -1,6 +1,44 @@
 # city_explorer_api
 
-Number and name of feature: Day 1
+<!-- 1. Repository Set Up -->
+
+Number and name of feature: Repository Set Up
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 11:30am
+
+Finish time: 12:45pm
+
+Actual time needed to complete: 1hr 15min
+
+<!-- 2. Locations: As a user of City Explorer, I want to enter the name of a location so that I can see data about the area of interest to me. -->
+
+Number and name of feature: Locations
+
+Estimate of time needed to complete: 1hr 30min
+
+Start time: 1:55pm
+
+Finish time: 2:55pm
+
+Actual time needed to complete: 1hr
+
+<!-- 3. Weather: As a user, I want to request current weather information so that I can learn more about the typical weather patterns in the location I had entered.  -->
+
+Number and name of feature: Weather
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+<!-- 4. Errors: As a user, I want clear messages if something goes wrong so I know if I need to make any changes or try again in a different manner.  -->
+
+Number and name of feature: Errors
 
 Estimate of time needed to complete: _____
 
@@ -32,5 +70,3 @@ Currently using javascript, express js, jquery, and .json files for data storage
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
-
-

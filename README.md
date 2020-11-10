@@ -28,25 +28,25 @@ Actual time needed to complete: 1hr
 
 Number and name of feature: Weather
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 3:10
 
-Finish time: _____
+Finish time: 5:10
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hours
 
 <!-- 4. Errors: As a user, I want clear messages if something goes wrong so I know if I need to make any changes or try again in a different manner.  -->
 
 Number and name of feature: Errors
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 30 mins
 
-Start time: _____
+Start time: 5:15
 
-Finish time: _____
+Finish time: 5:30
 
-Actual time needed to complete: _____
+Actual time needed to complete: 15 mins
 
 **Author**: Tina Myers and Jeff Ostlund
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)

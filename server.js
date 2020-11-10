@@ -69,7 +69,10 @@ function Weather(city, tempData) {
   this.date = tempData.datetime;
 }
 
-
+// catch all, calls everything we haven't specifically mentioned yet
+app.use('*', (request, response) => {
+  response.status(500).send('Sorry, not found!');
+})
 
 
 

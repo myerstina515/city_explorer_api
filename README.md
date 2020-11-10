@@ -57,7 +57,7 @@ This application will build a city explorer server response to client queries ba
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
-Create a server side environment by configuring machine to use express, cors, and dotenv, and create files and folders to adhere to the file tree provided.
+Create a server side environment by configuring machine to use express, cors, and dotenv, and create files and folders to adhere to the file tree provided. dotenv is require to run on machine.
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->

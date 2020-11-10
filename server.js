@@ -21,6 +21,7 @@ app.listen(PORT, () => {
 // open our API for public access
 app.use(cors());
 app.get('/location', handleLocation);
+// new route
 app.get('/weather', handleWeather);
 
 // named route handler vs. below in our examples we have unnamed (anonymous) callback functions
@@ -45,14 +46,30 @@ function Location(city, geoData) {
   this.latitude = geoData[0].lat;
   this.longitude = geoData[0].lon;
 }
+// callback to the route:
 
 function handleWeather(request, response) {
   try {
+    let weatherDataArray = [];
     let tempData = require('./data/weather.json');
     let city = request.query.city;
-    let weatherData = new weatherData()
+    for (var i = 0; i < tempData.data.length; i++){
+      let weatherData = new Weather(city, tempData.data[i]);
+      weatherDataArray.push(weatherData);
+    }
+    response.send(weatherDataArray);
+  } catch (error){
+    console.error(error);
   }
 }
+function Weather(city, tempData) {
+  this.search_query = city;
+  this.formatted_query = tempData.city_name;
+  this.weather = tempData.weather.description;
+  this.date = tempData.datetime;
+}
+
+
 
 
 

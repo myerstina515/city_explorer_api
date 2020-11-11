@@ -17,19 +17,19 @@ dotenv.config();
 
 // setup "app" constants (constants for my server file)
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY;
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
-app.listen(PORT, () => {
-  console.log(`server up: ${PORT}`) || 3000;
-  // console.log('server up: 3000');
-})
+
 
 // open our API for public access
 app.use(cors());
+
 app.get('/location', handleLocation);
-// new route
 app.get('/weather', handleWeather);
+app.listen(PORT, () => {
+  console.log(`server up on ${PORT}`);
+})
 
 // named route handler vs. below in our examples we have unnamed (anonymous) callback functions
 function handleLocation(req, res) {
@@ -64,25 +64,28 @@ function Location(city, geoData) {
 // callback to the route:
 
 function handleWeather(req, res){
-  const url = `http://api.weatherbit.io/v2.0/current?key=${WEATHER_API_KEY}`;
+  const url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}`;
   const queryParams = {
-    city: req.query.city
-    // lat: req.query.latitude,
-    // lon: req.query.longitude
+    // city: req.query.city
+    lat: req.query.latitude,
+    lon: req.query.longitude
   }
   // lat=
   superagent.get(url)
     .query(queryParams)
     .set('key', WEATHER_API_KEY)
     .then(data => {
-      // console.log('weather data:', data.body.data)
+      // console.log('weather data:', data.body)
       const results = data.body;
-      const weatherData = [];
-
-      results.data.map(item => {
-        weatherData.push(new Weather(item));
+      // const weatherDataArray = [];
+      // console.log(data.body.length)
+      // for (var i = 0; i < data.body.length; i++){
+      let items = results.data.map(item => {
+        return new Weather(item);
+        // console.log(weatherDataArray);
       })
-      res.json(weatherData);
+      // }
+      res.json(items);
     })
 }
 function Weather(entry){
@@ -90,8 +93,9 @@ function Weather(entry){
   this.temp = entry.temp;
   this.weather = entry.weather.description;
   this.datetime = entry.datetime;
-  console.log(entry);
+  // console.log(entry);
 }
+
 
 
 
@@ -117,6 +121,6 @@ function Weather(entry){
 // }
 
 // catch all, calls everything we haven't specifically mentioned yet
-app.use('*', (request, response) => {
-  response.status(500).send('Sorry, not found!');
+app.use('*', (req, res) => {
+  res.status(404).send('Sorry, not found!');
 })

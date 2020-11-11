@@ -45,7 +45,7 @@ function handleLocation(req, res) {
         const location = new Location(city, geoData);
         locations[url] = location;
 
-        console.log('visited locatoins:', locations);
+        console.log('visited locations:', locations);
         res.json(location);
       })
       .catch(() => {
@@ -64,12 +64,12 @@ function Location(city, geoData) {
 // callback to the route:
 
 function handleWeather(req, res){
-  const url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}`;
   const queryParams = {
     // city: req.query.city
     lat: req.query.latitude,
     lon: req.query.longitude
   }
+  const url = `http://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&${queryParams.lat}&${queryParams.lon}`;
   // lat=
   superagent.get(url)
     .query(queryParams)

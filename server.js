@@ -19,6 +19,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY;
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 app.listen(PORT, () => {
   console.log(`server up: ${PORT}`) || 3000;
   // console.log('server up: 3000');
@@ -33,7 +34,7 @@ app.get('/weather', handleWeather);
 // named route handler vs. below in our examples we have unnamed (anonymous) callback functions
 function handleLocation(req, res) {
   let city = req.query.city;
-  let url = 'http://us1.locationiq.com/v1/search.php?key=${GEOCODE_API_KEY}&q=${city}&format=json&limit=1';
+  let url = `http://us1.locationiq.com/v1/search.php?key=${GEOCODE_API_KEY}&q=${city}&format=json&limit=1`;
   let locations = {};
   if (locations[url]) {
     res.send(locations[url]);
@@ -61,6 +62,38 @@ function Location(city, geoData) {
 }
 
 // callback to the route:
+
+function handleWeather(req, res){
+  const url = `http://api.weatherbit.io/v2.0/current?key=${WEATHER_API_KEY}`;
+  const queryParams = {
+    city: req.query.city
+    // lat: req.query.latitude,
+    // lon: req.query.longitude
+  }
+  // lat=
+  superagent.get(url)
+    .query(queryParams)
+    .set('key', WEATHER_API_KEY)
+    .then(data => {
+      // console.log('weather data:', data.body.data)
+      const results = data.body;
+      const weatherData = [];
+
+      results.data.map(item => {
+        weatherData.push(new Weather(item));
+      })
+      res.json(weatherData);
+    })
+}
+function Weather(entry){
+  this.city_name = entry.city_name;
+  this.temp = entry.temp;
+  this.weather = entry.weather.description;
+  this.datetime = entry.datetime;
+  console.log(entry);
+}
+
+
 
 // function handleWeather(request, response) {
 //   try {

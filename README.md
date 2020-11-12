@@ -1,55 +1,94 @@
 # city_explorer_api
 
+<!-- Day 1 -->
 <!-- 1. Repository Set Up -->
-
 Number and name of feature: Repository Set Up
-
 Estimate of time needed to complete: 30 minutes
-
 Start time: 11:30am
-
 Finish time: 12:45pm
-
 Actual time needed to complete: 1hr 15min
 
-<!-- 2. Locations: As a user of City Explorer, I want to enter the name of a location so that I can see data about the area of interest to me. -->
-
+<!-- 2. Locations -->
 Number and name of feature: Locations
-
 Estimate of time needed to complete: 1hr 30min
-
 Start time: 1:55pm
-
 Finish time: 2:55pm
-
 Actual time needed to complete: 1hr
 
-<!-- 3. Weather: As a user, I want to request current weather information so that I can learn more about the typical weather patterns in the location I had entered.  -->
-
+<!-- 3. Weather  -->
 Number and name of feature: Weather
-
 Estimate of time needed to complete: 2 hours
-
 Start time: 3:10
-
 Finish time: 5:10
-
 Actual time needed to complete: 2 hours
 
-<!-- 4. Errors: As a user, I want clear messages if something goes wrong so I know if I need to make any changes or try again in a different manner.  -->
-
+<!-- 4. Errors  -->
 Number and name of feature: Errors
-
 Estimate of time needed to complete: 30 mins
-
 Start time: 5:15
-
 Finish time: 5:30
-
 Actual time needed to complete: 15 mins
 
+<!-- Day 2 -->
+<!-- 1. Data formatting  -->
+Number and name of feature: Data formatting
+Estimate of time needed to complete: 20 mins
+Start time: 6:55
+Finish time: 7:30
+Actual time needed to complete: 35 mins
+
+<!-- 2. Locations  -->
+Number and name of feature: Locations
+Estimate of time needed to complete: 30 mins
+Start time: 2:00
+Finish time: 4:30
+Actual time needed to complete: 2 hours 30 mins
+
+<!-- 3. Weather  -->
+Number and name of feature: Weather
+Estimate of time needed to complete: 2 hours
+Start time: 4:40
+Finish time: 6:55
+Actual time needed to complete: 2 hours 15 mins (+30 mins next day)
+
+<!-- 4. Trails  -->
+Number and name of feature: Trails <!-- (next day)  -->
+Estimate of time needed to complete: 2 hours
+Start time: 2:15
+Finish time: 4:15
+Actual time needed to complete: 2 hours
+
+<!-- Day 3 -->
+<!-- 1. Database  -->
+Number and name of feature: Database
+Estimate of time needed to complete: 2 hours
+Start time:
+Finish time:
+Actual time needed to complete:
+
+<!-- 2. Server  -->
+Number and name of feature: Server
+Estimate of time needed to complete:
+Start time:
+Finish time:
+Actual time needed to complete:
+
+<!-- 3. Deploy  -->
+Number and name of feature: Deploy
+Estimate of time needed to complete:
+Start time:
+Finish time:
+Actual time needed to complete:
+
+<!-- 4. Stretch  -->
+Number and name of feature: Stretch
+Estimate of time needed to complete:
+Start time:
+Finish time:
+Actual time needed to complete:
+
 **Author**: Tina Myers and Jeff Ostlund
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 2.1.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->

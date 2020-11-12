@@ -104,8 +104,8 @@ function handleLocation(req, res) {
       console.log('visited locations:', locations);
       res.send(location);
     })
-    .catch(() => {
-      console.error('did not work');
+    .catch((error) => {
+      console.error('did not work', error);
     })
 }
 

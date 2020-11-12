@@ -62,14 +62,14 @@ Actual time needed to complete: 2 hours
 <!-- 1. Database  -->
 Number and name of feature: Database
 Estimate of time needed to complete: 2 hours
-Start time:
-Finish time:
-Actual time needed to complete:
+Start time: 4:30
+Finish time: 5:45
+Actual time needed to complete: 1 hour 15 min
 
 <!-- 2. Server  -->
 Number and name of feature: Server
-Estimate of time needed to complete:
-Start time:
+Estimate of time needed to complete: 1 hour
+Start time: 5:45
 Finish time:
 Actual time needed to complete:
 

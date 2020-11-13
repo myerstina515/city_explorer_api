@@ -70,15 +70,15 @@ Actual time needed to complete: 1 hour 15 min
 Number and name of feature: Server
 Estimate of time needed to complete: 1 hour
 Start time: 5:45
-Finish time:
-Actual time needed to complete:
+Finish time: 8:00
+Actual time needed to complete: 2:15 + 1 next day = 3:15
 
 <!-- 3. Deploy  -->
 Number and name of feature: Deploy
-Estimate of time needed to complete:
-Start time:
-Finish time:
-Actual time needed to complete:
+Estimate of time needed to complete: 15 mins
+Start time: 2:00 (next day)
+Finish time: 3:30 (next day)
+Actual time needed to complete: 1 hour 30 mintues
 
 <!-- 4. Stretch  -->
 Number and name of feature: Stretch
@@ -86,6 +86,41 @@ Estimate of time needed to complete:
 Start time:
 Finish time:
 Actual time needed to complete:
+
+<!-- Day 4 -->
+Number and name of feature: Feature 1: Movie DB
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 3:30
+
+Finish time: 6:00
+
+Actual time needed to complete: 2 hours 30 mins
+
+Number and name of feature: Feature 2: Yelp
+Estimate of time needed to complete: 1 hour
+
+Start time: 6:00
+
+Finish time: 7:00
+
+Start time day 2: 1:45
+
+Finish time day 2: 2:20
+
+Actual time needed to complete: 1 hour 35 mins
+
+Number and name of feature: Feature 3: Pagination (stretch goal)
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
 
 **Author**: Tina Myers and Jeff Ostlund
 **Version**: 2.1.0 (increment the patch/fix version number if you make more commits past your first submission)

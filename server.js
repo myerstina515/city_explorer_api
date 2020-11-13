@@ -17,6 +17,8 @@ const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY;
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 const TRAILS_API_KEY = process.env.TRAILS_API_KEY;
 const MOVIES_API_KEY = process.env.MOVIES_API_KEY;
+const YELP_API_KEY = process.env.YELP_API_KEY;
+const YELP_CLIENT_ID = process.env.YELP_CLIENT_ID;
 const client = new pg.Client(process.env.DATABASE_URL);
 
 app.get('/add', (req, res) => {
@@ -88,6 +90,7 @@ app.get('/location', handleLocation);
 app.get('/weather', handleWeather);
 app.get('/trails', handleTrails);
 app.get('/movies', handleMovies);
+app.get('/yelp', handleYelp);
 
 
 // named route handler vs. below in our examples we have unnamed (anonymous) callback functions
@@ -200,8 +203,36 @@ function Movie(results) {
   this.released_on = results.release_date;
 }
 
+function handleYelp(req, res) {
+  let lat = req.query.latitude;
+  let lon = req.query.longitude;
+  const url = `https://api.yelp.com/v3/businesses/search?latitude=${lat}&longitude=${lon}`;
+  superagent.get(url)
+    .set('Authorization', `Bearer ${YELP_API_KEY}`)
+    .then(data => {
+      const yelpData = data.body;
+      console.log(data.body.results);
+      let items = yelpData.results.map(item => {
+        return new Yelp(item)
+      })
+      res.send(items).status(200);
+    })
+    .catch((error) => {
+      console.error('did not work', error);
+    })
+}
+
+// function Yelp(yelpData) {
+//   this.name = 
+//   this.image_url =
+//   this.price =
+//   this.rating =
+//   this.url =
+// }
 
 // catch all, calls everything we haven't specifically mentioned yet
 app.use('*', (req, res) => {
   res.status(404).send('Sorry, not found!');
 })
+
+// .set('Authorization', `Bearer ${YELP_API_KEY}`)

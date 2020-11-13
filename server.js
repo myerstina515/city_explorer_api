@@ -173,7 +173,7 @@ function Trails(trails) {
 }
 
 function handleMovies(req, res) {
-  let city = req.query.city;
+  let city = req.query.search_query;
   // console.log('movie');
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIES_API_KEY}&query=${city}`;
   superagent.get(url)
@@ -195,7 +195,7 @@ function Movie(results) {
   this.overview = results.overview;
   this.average_votes = results.vote_average;
   this.total_votes = results.vote_count;
-  this.image_url = results.poster_path;
+  this.image_url = `https://image.tmdb.org/t/p/w500/${results.poster_path}`;
   this.popularity = results.popularity;
   this.released_on = results.release_date;
 }

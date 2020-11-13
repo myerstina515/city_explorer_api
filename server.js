@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 const GEOCODE_API_KEY = process.env.GEOCODE_API_KEY;
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 const TRAILS_API_KEY = process.env.TRAILS_API_KEY;
+const MOVIES_API_KEY = process.env.MOVIES_API_KEY;
 const client = new pg.Client(process.env.DATABASE_URL);
 
 app.get('/add', (req, res) => {
@@ -86,6 +87,7 @@ app.use(cors());
 app.get('/location', handleLocation);
 app.get('/weather', handleWeather);
 app.get('/trails', handleTrails);
+app.get('/movies', handleMovies);
 
 
 // named route handler vs. below in our examples we have unnamed (anonymous) callback functions
@@ -169,6 +171,35 @@ function Trails(trails) {
   this.length = trails.length;
   this.summary = trails.summary;
 }
+
+function handleMovies(req, res) {
+  let city = req.query.city;
+  // console.log('movie');
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIES_API_KEY}&query=${city}`;
+  superagent.get(url)
+    .then(data => {
+      const movieList = data.body;
+      console.log(data.body.results);
+      let items = movieList.results.map(item => {
+        return new Movie(item)
+      })
+      res.send(items).status(200);
+    })
+    .catch((error) => {
+      console.error('did not work', error);
+    })
+}
+
+function Movie(results) {
+  this.title = results.title;
+  this.overview = results.overview;
+  this.average_votes = results.vote_average;
+  this.total_votes = results.vote_count;
+  this.image_url = results.poster_path;
+  this.popularity = results.popularity;
+  this.released_on = results.release_date;
+}
+
 
 // catch all, calls everything we haven't specifically mentioned yet
 app.use('*', (req, res) => {
